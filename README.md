@@ -81,3 +81,18 @@ La pendiente de la linea es: 1.0
 La linea corta con el eje vertical en Y=2.0
 
 La linea corta con el eje horizontal en X=-2.0
+
+## 2. Ristorante
+
+Clase MenuItem (parte simple)
+```python
+class MenuItem:
+    def __init__(self, nombre, precio):
+       self.nombre = nombre
+       self.precio = precio
+
+    def calcular_precio_completo(self, impuesto):
+      impuesto/=100 #Tranformando el impuesto a un valor fraccionario
+      return self.precio + (self.precio * impuesto)
+```
+frente a lo de calcular precio le damos el plus de poder agregar un impuesto
