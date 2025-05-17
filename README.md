@@ -96,3 +96,30 @@ class MenuItem:
       return self.precio + (self.precio * impuesto)
 ```
 frente a lo de calcular precio le damos el plus de poder agregar un impuesto
+```python
+# Subclase: Bebida
+class Bebida(MenuItem):
+    def __init__(self, nombre, precio, tamaño_ml):
+        super().__init__(nombre, precio)  # Llama al constructor de MenuItem
+        self.tamaño_ml = tamaño_ml
+    def __str__(self):
+        return f"Bebida: {self.nombre} ({self.tamaño_ml}ml) - ${self.precio}"
+# Subclase: Aperitivo
+class Aperitivo(MenuItem):
+    def __init__(self, nombre, precio, es_vegetariano):
+        super().__init__(nombre, precio)
+        self.es_vegetariano = es_vegetariano
+    def __str__(self):
+        #Una cosa interesante que quize probar fue operadores logicos en cadenas
+        return f"Aperitivo: {self.nombre} (Vegano?:{'sí' if self.es_vegetariano else 'no'}) - ${self.precio}"
+# Subclase: Plato Principal
+class PlatoPrincipal(MenuItem):
+    def __init__(self, nombre, precio, tiempo_preparacion_min):
+        super().__init__(nombre, precio)
+        self.tiempo_preparacion_min = tiempo_preparacion_min
+    def __str__(self):
+        return f"Plato principal: {self.nombre} (Timepo de espera: {self.tiempo_preparacion_min} min) - ${self.precio}"
+coca_cola = Bebida("Coca-Cola", 3500, 500)
+papas_fritas = Aperitivo("Papas Fritas", 5000, True)
+lasaña = PlatoPrincipal("Lasaña", 12000, 20)
+```python
